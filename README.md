@@ -1,341 +1,552 @@
-# Actividades_Introductorias-Bootcamp_Web
+# 🚀 Guía Completa - Fundamentos del Desarrollo Web
 
-## ✅ ACTIVIDAD 1 – ¿Esto es una web o una app web?
-
-**🎯 Objetivo:** Comprender la diferencia entre un sitio web estático y una aplicación web interactiva.
-
-### 1. Ejemplos de sitios web informativos:
-- [Wikipedia](https://www.wikipedia.org/)
-- [BBC News](https://www.bbc.com/)
-- [Medium](https://medium.com/)
-
-### 2. Ejemplos de aplicaciones web:
-- [Gmail](https://mail.google.com/)
-- [Trello](https://trello.com/)
-- [Spotify Web](https://open.spotify.com/)
-
-### 3. Justificación:
-
-| Tipo                | Características clave                                                        | Ejemplos                     |
-|---------------------|------------------------------------------------------------------------------|------------------------------|
-| **Sitio web**       | Contenido estático, informativo, sin necesidad de iniciar sesión.           | Wikipedia, BBC News, Medium  |
-| **Aplicación web**  | Interactiva, permite acciones del usuario, autenticación, datos en tiempo real. | Gmail, Trello, Spotify       |
-
-Los sitios informativos presentan información fija o actualizada por administradores, pero no requieren interacción avanzada del usuario. Las apps web permiten enviar correos, crear tareas, reproducir música, etc.
-
-### 4. Reflexión:
-
-Una aplicación web es interactiva porque:
-- El usuario puede realizar acciones dinámicas (como escribir, subir, o modificar contenido).
-- No siempre necesita recargar toda la página.
-- Cambia su interfaz según lo que haga el usuario.
-
-**Tecnologías comunes detrás:**
-- **Frontend:** HTML, CSS, JavaScript, React, Vue, Angular
-- **Backend:** Node.js, Java (Spring), Python (Django/Flask)
-- **APIs:** REST, GraphQL
-- **Base de datos:** MySQL, PostgreSQL, MongoDB
+## 📋 Tabla de Contenidos
+1. [Introducción](#introducción)
+2. [Sitios Web vs Aplicaciones Web](#sitios-web-vs-aplicaciones-web)
+3. [Arquitectura de Aplicaciones Web](#arquitectura-de-aplicaciones-web)
+4. [Herramientas de Desarrollo](#herramientas-de-desarrollo)
+5. [Tecnologías Fundamentales](#tecnologías-fundamentales)
+6. [Transición de Java a JavaScript](#transición-de-java-a-javascript)
+7. [Próximos Pasos](#próximos-pasos)
 
 ---
 
-## ✅ ACTIVIDAD 2 – Anatomía de una aplicación web moderna
+## 🎯 Introducción
 
-**🎯 Objetivo:** Comprender los componentes principales de una app web (frontend, backend, base de datos).
+Esta guía está diseñada para introducir a desarrolladores al ecosistema del desarrollo web moderno. Partiendo desde conceptos fundamentales hasta tecnologías avanzadas, te proporcionaremos una base sólida para tu carrera en desarrollo web.
 
-### 1. Definiciones:
+### Objetivos de Aprendizaje
+- Distinguir entre sitios web y aplicaciones web
+- Comprender la arquitectura de aplicaciones web modernas
+- Dominar las herramientas de desarrollo esenciales
+- Entender las tecnologías core del desarrollo web
+- Facilitar la transición de Java a JavaScript
 
-- **Frontend:** Es la parte visual con la que interactúa el usuario. Se compone de HTML, CSS y JavaScript. Es lo que ves en el navegador.
-- **Backend:** Parte lógica del servidor. Se encarga de procesar peticiones, manejar datos y comunicarse con la base de datos. Lenguajes comunes: Java, Node.js, Python.
-- **Base de datos:** Sistema donde se almacenan los datos (usuarios, productos, comentarios, etc.). Ejemplos: MySQL, MongoDB, PostgreSQL.
+---
 
-### 2. Diagrama en Mermaid:
+## 🔍 Sitios Web vs Aplicaciones Web
 
-```mermaid
-graph LR
-A[Usuario] --> B[Frontend (HTML/CSS/JS)]
-B --> C[Backend (API - Node.js/Spring)]
-C --> D[Base de Datos (MySQL/MongoDB)]
-D --> C
-C --> B
-B --> A
+### 📖 Sitios Web (Contenido Estático)
 
-✅ ACTIVIDAD 3 – Explorando las herramientas de desarrollo
-🎯 Objetivo: Familiarizarse con las DevTools del navegador.
+Los sitios web se caracterizan por presentar información de manera estructurada con interactividad limitada. El usuario principalmente **consume contenido**.
 
-1. ¿Cómo abrir DevTools?
-Windows: F12 o Ctrl + Shift + I
+#### Características Principales:
+- **Contenido estático** o semi-estático
+- **Interactividad limitada** (navegación, búsqueda básica)
+- **Actualización periódica** del contenido
+- **Funcionalidad básica** de presentación
 
-Linux: Ctrl + Shift + I
+#### Ejemplos Representativos:
 
-Mac: Cmd + Option + I
+**Wikipedia (wikipedia.org)**
+- Enciclopedia en línea con contenido principalmente estático
+- Información estructurada y bien organizada
+- Interactividad limitada a búsqueda y navegación
+- Enfoque en la presentación de información
 
-2. Pestañas importantes a explorar:
-Elementos: Muestra el HTML y cómo se estructura visualmente la página.
+**BBC News (bbc.com/news)**
+- Portal de noticias con artículos y contenido multimedia
+- Actualización periódica pero presentación estática
+- Funcionalidad básica de navegación y búsqueda
+- Consumo pasivo de información
 
-Consola: Muestra errores y mensajes generados por JavaScript.
+**Portafolio Personal**
+- Muestra información sobre proyectos y experiencia
+- Contenido descriptivo y visual
+- Interacción mínima (formulario de contacto)
+- Propósito informativo y promocional
 
-Red (Network): Permite ver las solicitudes HTTP (peticiones y respuestas del servidor).
+### 🔧 Aplicaciones Web (Contenido Dinámico)
 
-Almacenamiento (Storage): Muestra cookies, localStorage, sessionStorage, etc.
+Las aplicaciones web ofrecen funcionalidades complejas, permiten al usuario realizar tareas específicas y proporcionan experiencias interactivas completas.
 
-3. Capturas sugeridas (ejemplo con google.com):
-Solicitud HTTP: Ve a la pestaña Red, recarga la página y haz clic en un archivo .html, .js o .json.
+#### Características Principales:
+- **Funcionalidades complejas** y especializadas
+- **Interacción en tiempo real** con el usuario
+- **Procesamiento de datos** dinámico
+- **Gestión de estado** de usuario
+- **Experiencias personalizadas**
 
-Error en consola: Si no aparece ninguno, puedes simular uno escribiendo en consola:
+#### Ejemplos Representativos:
 
-js
-Copiar
-Editar
-console.error("Error de prueba");
-HTML de un elemento: Haz clic derecho sobre el logo de Google > "Inspeccionar", y verás su etiqueta <img> o <div> en el panel de Elementos.
+**Gmail (gmail.com)**
+- Gestión completa de correo electrónico
+- Funcionalidades: componer, enviar, organizar, buscar
+- Sincronización en tiempo real
+- Personalización y configuración avanzada
 
-✅ ACTIVIDAD 4 – Soy nuevo y aprendí Java… ¿y ahora qué con HTML, CSS y JS?
-🎯 Objetivo: Dar una primera mirada sencilla a HTML, CSS y JavaScript.
+**Trello (trello.com)**
+- Gestión de proyectos con tableros colaborativos
+- Crear, mover, editar tarjetas dinámicamente
+- Colaboración en tiempo real entre usuarios
+- Flujos de trabajo personalizables
 
-1. ¿Qué hace cada tecnología?
-HTML (HyperText Markup Language): Define la estructura de una página web. Usa etiquetas como <h1>, <p>, <a>, etc.
+**Spotify Web (open.spotify.com)**
+- Reproducción de música en streaming
+- Listas de reproducción personalizadas
+- Interacción compleja con controles de audio
+- Recomendaciones algorítmicas
 
-CSS (Cascading Style Sheets): Estiliza el contenido HTML (colores, tamaños, márgenes, etc.).
+### 💡 ¿Qué Hace Interactiva a una Aplicación Web?
 
-JavaScript (JS): Añade interactividad (como responder a clics, mostrar mensajes, cargar contenido sin recargar la página).
+1. **Respuesta en Tiempo Real**: Reacciona inmediatamente a las acciones del usuario
+2. **Procesamiento Dinámico**: Manipula y procesa datos de forma dinámica
+3. **Gestión de Estado**: Mantiene y actualiza el estado de la sesión del usuario
+4. **Funcionalidades Avanzadas**: Ofrece herramientas más allá de mostrar información
+5. **Personalización**: Adapta la experiencia según las preferencias del usuario
 
-2. Comparación: Java vs JavaScript
-Característica	Java	JavaScript
-Tipo de lenguaje	Compilado	Interpretado por el navegador
-Entorno	Backend (apps, servidores, móviles)	Navegador (frontend) y backend (Node.js)
-Sintaxis similar	Sí (ambos usan llaves y variables)	Sí, pero no son compatibles
-Relación	Ninguna directa	Nombre similar, pero tecnologías distintas
+---
 
-3. Mini README: Tecnologías Web
-markdown
-Copiar
-Editar
-# Tecnologías Básicas Web
+## 🏗️ Arquitectura de Aplicaciones Web
 
-## HTML
-Es el lenguaje que define la **estructura** de una página web.
+### 📊 Componentes Fundamentales
 
+#### 🎨 Frontend (Cliente)
+- **Responsabilidad**: Interfaz de usuario y experiencia (UI/UX)
+- **Tecnologías**: HTML, CSS, JavaScript
+- **Frameworks**: React, Vue.js, Angular, Svelte
+- **Funciones**: Presentación, interacción, validación inicial
+
+#### ⚙️ Backend (Servidor)
+- **Responsabilidad**: Lógica de negocio y procesamiento
+- **Tecnologías**: Node.js, Python, Java, PHP, C#, Ruby
+- **Funciones**: Autenticación, validación, procesamiento de datos
+- **APIs**: REST, GraphQL, WebSockets
+
+#### 💾 Base de Datos
+- **Responsabilidad**: Almacenamiento y gestión de datos
+- **Relacionales**: MySQL, PostgreSQL, SQL Server
+- **NoSQL**: MongoDB, Redis, Cassandra
+- **Funciones**: Persistencia, consultas, integridad de datos
+
+### 🔄 Flujo de Comunicación
+
+```
+Usuario → Frontend → Backend → Base de Datos
+   ↑                               ↓
+   ← Frontend ← Backend ← Base de Datos
+```
+
+1. **Interacción del Usuario**: El usuario interactúa con la interfaz
+2. **Solicitud HTTP**: El frontend envía peticiones al backend
+3. **Procesamiento**: El backend ejecuta la lógica de negocio
+4. **Consulta de Datos**: Acceso y manipulación de la base de datos
+5. **Respuesta**: Los datos regresan al frontend
+6. **Actualización**: La interfaz se actualiza con los nuevos datos
+
+---
+
+## 🛠️ Herramientas de Desarrollo
+
+### 🔧 DevTools del Navegador
+
+#### Métodos de Acceso:
+- **Windows**: `F12` o `Ctrl + Shift + I`
+- **Linux**: `Ctrl + Shift + I`
+- **Mac**: `Cmd + Option + I`
+
+### 📋 Pestañas Esenciales
+
+#### 🔍 Elements (Elementos)
+- **Función**: Inspecciona y edita HTML/CSS en tiempo real
+- **Utilidad**: Visualiza la estructura DOM de la página
+- **Casos de Uso**: Debugging de estilos, ajustes de layout, testing de cambios
+
+#### 💻 Console (Consola)
+- **Función**: Muestra mensajes, errores y advertencias
+- **Utilidad**: Ejecutar JavaScript directamente
+- **Casos de Uso**: Debugging, testing de funciones, análisis de errores
+
+#### 🌐 Network (Red)
+- **Función**: Monitorea todas las solicitudes HTTP
+- **Utilidad**: Analiza tiempo de carga y tamaño de recursos
+- **Casos de Uso**: Optimización de rendimiento, debugging de APIs
+
+#### 💾 Storage (Almacenamiento)
+- **Función**: Inspecciona cookies, localStorage, sessionStorage
+- **Utilidad**: Visualiza datos almacenados en el navegador
+- **Casos de Uso**: Debugging de datos persistentes, gestión de sesiones
+
+### 🔎 Ejemplo Práctico: Inspección de Google.com
+
+#### Solicitud HTTP Capturada:
+```http
+GET / HTTP/1.1
+Host: www.google.com
+Status: 200 OK
+Content-Type: text/html; charset=UTF-8
+```
+
+#### Elemento HTML Inspeccionado:
 ```html
-<h1>Hola Mundo</h1>
-<p>Bienvenido a mi sitio web.</p>
-CSS
-Define la apariencia visual de los elementos HTML.
+<input class="gLFyf gsfi" type="text" aria-label="Buscar">
+```
 
-css
-Copiar
-Editar
-h1 {
-  color: blue;
-  font-family: Arial;
-}
-JavaScript
-Agrega interactividad a una web.
-
-js
-Copiar
-Editar
-document.querySelector("h1").onclick = () => {
-  alert("¡Haz hecho clic en el título!");
-};
-yaml
-Copiar
-Editar
+#### Posibles Errores en Consola:
+- Advertencias sobre cookies de terceros
+- Mensajes de políticas de seguridad (CSP)
+- Recursos bloqueados por adblockers
 
 ---
 
-¿Te gustaría que continúe con la Actividad 5 también? Puedo ayudarte con la presentación para el tema que te haya tocado en tu equipo.
+## 🌐 Tecnologías Fundamentales
 
+### 🏗️ HTML (HyperText Markup Language)
 
+#### Función Principal:
+Define la **estructura y contenido** de una página web. Es el "esqueleto" que organiza la información.
 
-Dijiste:
-pero todo
+#### Elementos Clave:
+- Títulos y párrafos
+- Enlaces e imágenes
+- Formularios e inputs
+- Listas y tablas
+- Elementos semánticos
 
-
-ChatGPT dijo:
-Perfecto, aquí tienes el documento completo de las actividades 1 a 5 ya desarrolladas, en formato Markdown con todo lo investigado, ejemplos, justificaciones, diagramas y código. Puedes copiarlo directamente a tu archivo README.md o subirlo a tu repositorio de GitHub:
-
-markdown
-Copiar
-Editar
-# 🚀 Actividades Introductorias – Bootcamp Web
-
-Este README contiene 5 actividades diseñadas para introducir a los estudiantes al mundo del desarrollo web, partiendo desde los fundamentos de redes hasta las tecnologías modernas del stack completo.
-
----
-
-## ✅ ACTIVIDAD 1 – ¿Esto es una web o una app web?
-
-**🎯 Objetivo:** Comprender la diferencia entre un sitio web estático y una aplicación web interactiva.
-
-### 1. Ejemplos de sitios web informativos:
-- [Wikipedia](https://www.wikipedia.org/)
-- [BBC News](https://www.bbc.com/)
-- [Medium](https://medium.com/)
-
-### 2. Ejemplos de aplicaciones web:
-- [Gmail](https://mail.google.com/)
-- [Trello](https://trello.com/)
-- [Spotify Web](https://open.spotify.com/)
-
-### 3. Justificación:
-
-| Tipo                | Características clave                                                        | Ejemplos                     |
-|---------------------|------------------------------------------------------------------------------|------------------------------|
-| **Sitio web**       | Contenido estático, informativo, sin necesidad de iniciar sesión.           | Wikipedia, BBC News, Medium  |
-| **Aplicación web**  | Interactiva, permite acciones del usuario, autenticación, datos en tiempo real. | Gmail, Trello, Spotify       |
-
-Los sitios informativos presentan información fija o actualizada por administradores, pero no requieren interacción avanzada del usuario. Las apps web permiten enviar correos, crear tareas, reproducir música, etc.
-
-### 4. Reflexión:
-
-Una aplicación web es interactiva porque:
-- El usuario puede realizar acciones dinámicas (como escribir, subir, o modificar contenido).
-- No siempre necesita recargar toda la página.
-- Cambia su interfaz según lo que haga el usuario.
-
-**Tecnologías comunes detrás:**
-- **Frontend:** HTML, CSS, JavaScript, React, Vue, Angular
-- **Backend:** Node.js, Java (Spring), Python (Django/Flask)
-- **APIs:** REST, GraphQL
-- **Base de datos:** MySQL, PostgreSQL, MongoDB
-
----
-
-## ✅ ACTIVIDAD 2 – Anatomía de una aplicación web moderna
-
-**🎯 Objetivo:** Comprender los componentes principales de una app web (frontend, backend, base de datos).
-
-### 1. Definiciones:
-
-- **Frontend:** Es la parte visual con la que interactúa el usuario. Se compone de HTML, CSS y JavaScript. Es lo que ves en el navegador.
-- **Backend:** Parte lógica del servidor. Se encarga de procesar peticiones, manejar datos y comunicarse con la base de datos. Lenguajes comunes: Java, Node.js, Python.
-- **Base de datos:** Sistema donde se almacenan los datos (usuarios, productos, comentarios, etc.). Ejemplos: MySQL, MongoDB, PostgreSQL.
-
-### 2. Diagrama en Mermaid:
-
-```mermaid
-graph LR
-A[Usuario] --> B[Frontend (HTML/CSS/JS)]
-B --> C[Backend (API - Node.js/Spring)]
-C --> D[Base de Datos (MySQL/MongoDB)]
-D --> C
-C --> B
-B --> A
-Visualízalo en https://mermaid.live
-
-✅ ACTIVIDAD 3 – Explorando las herramientas de desarrollo
-🎯 Objetivo: Familiarizarse con las DevTools del navegador.
-
-1. ¿Cómo abrir DevTools?
-Windows: F12 o Ctrl + Shift + I
-
-Linux: Ctrl + Shift + I
-
-Mac: Cmd + Option + I
-
-2. Pestañas importantes a explorar:
-Elementos: Muestra el HTML y cómo se estructura visualmente la página.
-
-Consola: Muestra errores y mensajes generados por JavaScript.
-
-Red (Network): Permite ver las solicitudes HTTP (peticiones y respuestas del servidor).
-
-Almacenamiento (Storage): Muestra cookies, localStorage, sessionStorage, etc.
-
-3. Capturas sugeridas (ejemplo con google.com):
-Solicitud HTTP: Ve a la pestaña Red, recarga la página y haz clic en un archivo .html, .js o .json.
-
-Error en consola: Si no aparece ninguno, puedes simular uno escribiendo en consola:
-
-js
-Copiar
-Editar
-console.error("Error de prueba");
-HTML de un elemento: Haz clic derecho sobre el logo de Google > "Inspeccionar", y verás su etiqueta <img> o <div> en el panel de Elementos.
-
-✅ ACTIVIDAD 4 – Soy nuevo y aprendí Java… ¿y ahora qué con HTML, CSS y JS?
-🎯 Objetivo: Dar una primera mirada sencilla a HTML, CSS y JavaScript.
-
-1. ¿Qué hace cada tecnología?
-HTML (HyperText Markup Language): Define la estructura de una página web. Usa etiquetas como <h1>, <p>, <a>, etc.
-
-CSS (Cascading Style Sheets): Estiliza el contenido HTML (colores, tamaños, márgenes, etc.).
-
-JavaScript (JS): Añade interactividad (como responder a clics, mostrar mensajes, cargar contenido sin recargar la página).
-
-2. Comparación: Java vs JavaScript
-Característica	Java	JavaScript
-Tipo de lenguaje	Compilado	Interpretado por el navegador
-Entorno	Backend (apps, servidores, móviles)	Navegador (frontend) y backend (Node.js)
-Sintaxis similar	Sí (ambos usan llaves y variables)	Sí, pero no son compatibles
-Relación	Ninguna directa	Nombre similar, pero tecnologías distintas
-
-3. Mini README: Tecnologías Web
-markdown
-Copiar
-Editar
-# Tecnologías Básicas Web
-
-## HTML
-Es el lenguaje que define la **estructura** de una página web.
-
+#### Ejemplo Práctico:
 ```html
-<h1>Hola Mundo</h1>
-<p>Bienvenido a mi sitio web.</p>
-CSS
-Define la apariencia visual de los elementos HTML.
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Primer Sitio Web</title>
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a Mi Sitio</h1>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre">Sobre Mí</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="inicio">
+            <h2>Inicio</h2>
+            <p>Este es un párrafo de ejemplo en mi sitio web.</p>
+            <button id="mi-boton">Haz clic aquí</button>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Mi Sitio Web</p>
+    </footer>
+</body>
+</html>
+```
 
-css
-Copiar
-Editar
-h1 {
-  color: blue;
-  font-family: Arial;
+### 🎨 CSS (Cascading Style Sheets)
+
+#### Función Principal:
+Controla la **presentación visual y el diseño**. Es la "piel" que hace que la web se vea atractiva.
+
+#### Conceptos Clave:
+- Selectores y propiedades
+- Box model y layouts
+- Flexbox y Grid
+- Responsive design
+- Animaciones y transiciones
+
+#### Ejemplo Práctico:
+```css
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-JavaScript
-Agrega interactividad a una web.
 
-js
-Copiar
-Editar
-document.querySelector("h1").onclick = () => {
-  alert("¡Haz hecho clic en el título!");
-};
-yaml
-Copiar
-Editar
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Header styles */
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+h1 {
+    color: white;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffd700;
+}
+
+/* Button styles */
+button {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #764ba2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+```
+
+### ⚡ JavaScript
+
+#### Función Principal:
+Añade **interactividad y comportamiento dinámico**. Es el "cerebro" que hace que la web responda.
+
+#### Conceptos Clave:
+- Manipulación del DOM
+- Eventos y event listeners
+- Asincronía (Promises, async/await)
+- APIs y fetch
+- Frameworks y librerías
+
+#### Ejemplo Práctico:
+```javascript
+// Selección de elementos DOM
+const button = document.getElementById('mi-boton');
+const header = document.querySelector('header');
+
+// Event listeners
+button.addEventListener('click', function() {
+    // Interacción básica
+    alert('¡Botón clickeado!');
+    
+    // Manipulación del DOM
+    const newParagraph = document.createElement('p');
+    newParagraph.textContent = 'Nuevo párrafo creado dinámicamente';
+    newParagraph.style.color = '#667eea';
+    document.querySelector('main').appendChild(newParagraph);
+});
+
+// Función asíncrona para obtener datos
+async function fetchUserData() {
+    try {
+        const response = await fetch('https://api.example.com/users');
+        const data = await response.json();
+        displayUserData(data);
+    } catch (error) {
+        console.error('Error al obtener datos:', error);
+    }
+}
+
+// Función para mostrar datos
+function displayUserData(users) {
+    const userList = document.createElement('ul');
+    users.forEach(user => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${user.name} - ${user.email}`;
+        userList.appendChild(listItem);
+    });
+    document.querySelector('main').appendChild(userList);
+}
+
+// Smooth scrolling para navegación
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+```
 
 ---
 
-## ✅ ACTIVIDAD 5 – Explorando el stack web por equipos
+## ☕ Transición de Java a JavaScript
 
-**🎯 Objetivo:** Conocer las principales tecnologías del stack web a trabajar en el bootcamp.
+### 🤝 Similitudes entre Java y JavaScript
 
-### 1. Reparto de temas por equipo:
+#### Conceptos Compartidos:
+- **Lógica de programación**: Estructuras de control similares
+- **Orientación a objetos**: Ambos soportan paradigmas OOP
+- **Sintaxis familiar**: Estructuras básicas (if, for, while)
+- **Comunidad amplia**: Ecosistemas robustos y documentación extensa
 
-| Equipo | Tema                         |
-|--------|------------------------------|
-| 1      | HTML                         |
-| 2      | CSS                          |
-| 3      | JavaScript                   |
-| 4      | React                        |
-| 5      | Node.js / Maven              |
-| 6      | Java + Spring Boot           |
-| 7      | MySQL / PostgreSQL           |
+### 🔄 Diferencias Fundamentales
 
-### 2. Indicaciones para la presentación:
-- Crear una presentación sencilla en [https://gamma.app](https://gamma.app) (o similar).
-- Máximo **5 slides** con:
-  - ¿Qué es?
-  - ¿Para qué sirve?
-  - ¿Dónde se usa?
-  - Imagen o diagrama explicativo
-  - ¿Por qué es importante?
+| Aspecto | Java | JavaScript |
+|---------|------|------------|
+| **Ejecución** | Compilado (JVM) | Interpretado (Navegador/Node.js) |
+| **Tipado** | Fuertemente tipado | Débilmente tipado |
+| **Declaración** | `int numero = 5;` | `let numero = 5;` |
+| **Uso Principal** | Aplicaciones empresariales | Desarrollo web |
+| **Orientación** | Estrictamente OOP | Multi-paradigma |
+| **Gestión de Memoria** | Automática (Garbage Collection) | Automática (Garbage Collection) |
+| **Concurrencia** | Threads | Event Loop |
 
-### 3. Exposición:
-- Solo **una persona** del equipo presenta.
-- Tiempo máximo: **3 minutos**.
+### 🎯 Analogía para Entender la Diferencia
+
+**Java**: Como construir una casa con planos arquitectónicos detallados
+- Estructura rígida y bien definida
+- Planificación previa exhaustiva
+- Reglas estrictas de construcción
+- Resultado predecible y robusto
+
+**JavaScript**: Como decorar y amueblar esa casa
+- Flexibilidad en la implementación
+- Cambios rápidos y experimentación
+- Adaptabilidad a diferentes estilos
+- Interactividad y dinamismo
+
+### 💡 Ventajas de tu Experiencia en Java
+
+#### Conocimientos Transferibles:
+- **Lógica de programación** sólida
+- **Estructuras de control** y algoritmos
+- **Conceptos de POO** (clases, herencia, polimorfismo)
+- **Debugging** y resolución de problemas
+- **Patrones de diseño** aplicables
+
+#### Nuevos Conceptos a Dominar:
+- **Manipulación del DOM** y eventos
+- **Callbacks** y programación asíncrona
+- **Closures** y scope en JavaScript
+- **Prototipado** vs clases tradicionales
+- **Ecosistema de frameworks** web
+
+### 🚀 Estrategia de Aprendizaje Recomendada
+
+1. **Fundamentos Sólidos**: Domina HTML, CSS y JavaScript vanilla
+2. **Proyectos Prácticos**: Construye aplicaciones pequeñas pero completas
+3. **Frameworks Modernos**: Explora React, Vue o Angular
+4. **Herramientas de Desarrollo**: Familiarízate con Node.js, npm, webpack
+5. **Mejores Prácticas**: Aprende sobre testing, deployment y optimización
 
 ---
 
-¡Fin del documento! 🚀
+## 🎯 Próximos Pasos
+
+### 📚 Ruta de Aprendizaje Recomendada
+
+#### Fase 1: Fundamentos (2-4 semanas)
+- [ ] **HTML Semántico**: Estructura y mejores prácticas
+- [ ] **CSS Moderno**: Flexbox, Grid, responsive design
+- [ ] **JavaScript ES6+**: Sintaxis moderna y funcionalidades
+- [ ] **Git y GitHub**: Control de versiones
+
+#### Fase 2: Desarrollo Interactivo (4-6 semanas)
+- [ ] **DOM Manipulation**: Selección y modificación de elementos
+- [ ] **Event Handling**: Gestión de eventos del usuario
+- [ ] **Fetch API**: Comunicación con servidores
+- [ ] **Local Storage**: Persistencia de datos en el navegador
+
+#### Fase 3: Frameworks y Herramientas (6-8 semanas)
+- [ ] **React.js**: Librería para interfaces de usuario
+- [ ] **Node.js**: JavaScript en el servidor
+- [ ] **Express.js**: Framework web para Node.js
+- [ ] **MongoDB**: Base de datos NoSQL
+
+#### Fase 4: Proyectos Avanzados (8-12 semanas)
+- [ ] **Full Stack Application**: Aplicación completa
+- [ ] **API REST**: Creación y consumo de APIs
+- [ ] **Authentication**: Sistemas de autenticación
+- [ ] **Deployment**: Despliegue en la nube
+
+### 🛠️ Herramientas Esenciales
+
+#### Editores de Código:
+- **Visual Studio Code**: Editor más popular para web
+- **WebStorm**: IDE completo para JavaScript
+- **Sublime Text**: Editor ligero y rápido
+
+#### Navegadores para Desarrollo:
+- **Chrome DevTools**: Herramientas más completas
+- **Firefox Developer Edition**: Enfocado en desarrollo
+- **Safari Web Inspector**: Para desarrollo iOS
+
+#### Control de Versiones:
+- **Git**: Sistema de control de versiones
+- **GitHub**: Repositorios y colaboración
+- **GitLab**: Alternativa con CI/CD integrado
+
+### 📖 Recursos de Aprendizaje
+
+#### Documentación Oficial:
+- [MDN Web Docs](https://developer.mozilla.org/): Referencia completa
+- [W3Schools](https://www.w3schools.com/): Tutoriales básicos
+- [JavaScript.info](https://javascript.info/): Guía detallada de JS
+
+#### Cursos Online:
+- **FreeCodeCamp**: Curriculum completo gratuito
+- **Codecademy**: Cursos interactivos
+- **Udemy/Coursera**: Cursos estructurados
+
+#### Práctica:
+- **CodePen**: Playground para experimentar
+- **JSFiddle**: Pruebas rápidas de código
+- **Repl.it**: Entorno de desarrollo online
+
+---
+
+## 🎉 Conclusión
+
+Esta guía te ha proporcionado una base sólida para comenzar tu journey en el desarrollo web. Los conceptos fundamentales que has aprendido incluyen:
+
+- **Diferenciación** entre sitios web y aplicaciones web
+- **Arquitectura** de aplicaciones web modernas
+- **Herramientas** de desarrollo esenciales
+- **Tecnologías core** del desarrollo web
+- **Estrategias** para la transición desde Java
+
+### 🚀 Mensaje Final
+
+El desarrollo web es un campo en constante evolución que ofrece infinitas posibilidades creativas y profesionales. Tu experiencia previa en programación te da una ventaja significativa, y con dedicación y práctica constante, pronto dominarás este emocionante ecosistema.
+
+**¡Bienvenido al fascinante mundo del desarrollo web!** 🌟
+
+---
+
+*Esta guía es un documento vivo que se actualiza regularmente. Para sugerencias o mejoras, no dudes en contribuir.*
