@@ -224,4 +224,4 @@ Primer proyecto "Hello World"
 Integración de tecnologías
 Despliegue básico
 
-¡Estas actividades sientan las bases para un aprendizaje sólido en desarrollo web full-stack!
+¡Estas actividades sientan las bases para un aprendizaje sólido en desarrollo web
